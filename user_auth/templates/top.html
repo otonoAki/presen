@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TOP</title>
+  </head>
+  <body>
+    <h1>ようこそ{{ user }}さん</h1>
+    <div><a href="/accounts/logout">ログアウト</a></div>
+    <p>UserId:{{ user.access_token.user_id }}</p>
+      <p>OAuthTokenSecret:{{ user.access_token.oauth_token_secret }}</p>
+      <p>OAuthToken:{{ user.access_token.oauth_token }}</p>
+      <p>ScreenName:{{ user.access_token.screen_name }}</p>
+      <P>Followes:{{ Flo }}</P>
+      <p>Friends:{{ Fri }}</p>
+      <p>Description:{{ Des }}</p>
+    </div>
+    {% block body %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <form action="" method="get" class="form-group">
+          <label><input type="text" size="60" name="words" class="form-control" placeholder="ツイート"></label>
+          <input type="submit" class="btn btn-primary" value="送信">
+          <input type="button" class="btn btn-warning" value="リロード" onclick="location.reload();" />
+        </form>
+
+        {% if Words %}
+        <p>「{{ Words }}」 とツイートしました。</p>
+        {% endif %}
+      
+      <div class="col-md-6">
+        <dl>
+          <dt><span class="reply"><img class="users-img" src="{{ Img }}">{{ User }}/{{ Name }}</span><span class="d-time">{{ Cri }}</span></dt>
+          <dd>{{ Text }}</dd><P>Followes:{{ Flo }}</P>
+        </dl>
+        <ul id="output"></ul>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+  </body>
+</html>
